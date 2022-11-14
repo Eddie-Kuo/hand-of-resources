@@ -33,8 +33,7 @@ describe('pokemon routes', () => {
     });
   });
   test('get/:id', async () => {
-    const res = await request(app).get('/pokemons');
-    expect(res.body.length).toEqual(1);
+    const res = await request(app).get('/pokemons/1');
     expect(res.body).toEqual({
       id: expect.any(String),
       name: expect.any(String),
