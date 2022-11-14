@@ -9,7 +9,7 @@ describe('pokemon routes', () => {
     return setup(pool);
   });
 
-  test('create route', async () => {
+  test('post route', async () => {
     //* add in model once its created to add total count into the test to make sure post works
     const pokemon = new Pokemon({
       name: 'mewtwo',
@@ -21,6 +21,15 @@ describe('pokemon routes', () => {
     const count = await Pokemon.countPokemon();
     expect(count).toEqual(6);
     expect(res.status).toBe(200);
+  });
+
+  test('get all route', async () => {
+    const res = await request(app).get('/pokemons');
+    expect(res.body.length).toEqual(5);
+    expect(res.body[0]).toEqual({
+      name: expect.any(String),
+      type: expect.any(String),
+    });
   });
 
   afterAll(() => {
