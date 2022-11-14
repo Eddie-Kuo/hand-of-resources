@@ -32,6 +32,15 @@ describe('pokemon routes', () => {
       type: expect.any(String),
     });
   });
+  test('get/:id', async () => {
+    const res = await request(app).get('/pokemons');
+    expect(res.body.length).toEqual(1);
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      name: expect.any(String),
+      type: expect.any(String),
+    });
+  });
 
   afterAll(() => {
     pool.end();
