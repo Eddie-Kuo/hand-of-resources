@@ -55,6 +55,11 @@ describe('pokemon routes', () => {
     expect(res.status).toEqual(200);
   });
 
+  test('/delete by id', async () => {
+    const res = await request(app).delete('/pokemons/1');
+    expect(res.status).toEqual(204); //* no content
+  });
+
   afterAll(() => {
     pool.end();
   });
