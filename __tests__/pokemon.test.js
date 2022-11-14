@@ -27,6 +27,7 @@ describe('pokemon routes', () => {
     const res = await request(app).get('/pokemons');
     expect(res.body.length).toEqual(5);
     expect(res.body[0]).toEqual({
+      id: expect.any(String),
       name: expect.any(String),
       type: expect.any(String),
     });
