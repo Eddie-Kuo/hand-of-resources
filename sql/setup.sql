@@ -54,7 +54,7 @@ INSERT INTO
 VALUES
     ('brodie', 'corgi', 3),
     ('lexi', 'shiba', 3),
-    ('galdolf', 'great dane', 2),
+    ('gandolf', 'great dane', 2),
     ('savanna', 'labrador', 9),
     ('hughie', 'great dane', 5),
     ('harris', 'pitbull', 4);
