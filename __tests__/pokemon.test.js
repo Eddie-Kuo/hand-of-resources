@@ -41,6 +41,15 @@ describe('pokemon routes', () => {
     });
   });
 
+  test('/put/patch route', async () => {
+    const pokemon = {
+      name: 'pikachu',
+      type: 'electric',
+    };
+    const res = await request(app).put('/pokemon/update').send(pokemon);
+    expect(res.body).toEqual(pokemon);
+  });
+
   afterAll(() => {
     pool.end();
   });
