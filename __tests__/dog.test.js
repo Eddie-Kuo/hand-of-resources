@@ -23,12 +23,13 @@ describe('dog routes', () => {
     expect(res.status).toEqual(200);
   });
   test('get all', async () => {
-    const res = await request(app).get('dogs');
+    const res = await request(app).get('/dogs');
     expect(res.body.length).toEqual(6);
     expect(res.body[0]).toEqual({
+      id: expect.any(String),
       name: expect.any(String),
       breed: expect.any(String),
-      age: expect.any(String),
+      age: expect.any(Number),
     });
   });
   afterAll(() => {
