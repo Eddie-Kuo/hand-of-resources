@@ -20,6 +20,16 @@ describe('dog routes', () => {
     expect(res.body.age).toEqual(dog.age);
     const count = await Dog.count();
     expect(count).toEqual(7);
+    expect(res.status).toEqual(200);
+  });
+  test('get all', async () => {
+    const res = await request(app).get('dogs');
+    expect(res.body.length).toEqual(6);
+    expect(res.body[0]).toEqual({
+      name: expect.any(String),
+      breed: expect.any(String),
+      age: expect.any(String),
+    });
   });
   afterAll(() => {
     pool.end();
