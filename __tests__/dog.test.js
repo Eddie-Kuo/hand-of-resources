@@ -22,10 +22,21 @@ describe('dog routes', () => {
     expect(count).toEqual(7);
     expect(res.status).toEqual(200);
   });
+
   test('get all', async () => {
     const res = await request(app).get('/dogs');
     expect(res.body.length).toEqual(6);
     expect(res.body[0]).toEqual({
+      id: expect.any(String),
+      name: expect.any(String),
+      breed: expect.any(String),
+      age: expect.any(Number),
+    });
+  });
+
+  test('get by id', async () => {
+    const res = await request(app).get('/dogs/1');
+    expect(res.body).toEqual({
       id: expect.any(String),
       name: expect.any(String),
       breed: expect.any(String),
