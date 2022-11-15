@@ -18,6 +18,8 @@ describe('dog routes', () => {
     expect(res.body.name).toEqual(dog.name);
     expect(res.body.breed).toEqual(dog.breed);
     expect(res.body.age).toEqual(dog.age);
+    const count = await Dog.count();
+    expect(count).toEqual(7);
   });
   afterAll(() => {
     pool.end();
