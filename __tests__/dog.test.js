@@ -63,5 +63,3 @@ describe('dog routes', () => {
     pool.end();
   });
 });
-
-//* next is the delete test for resource 2

@@ -27,3 +27,6 @@ describe('avengers routes', () => {
     pool.end();
   });
 });
+
+//! Next Steps
+//* write out the get all/ get by id test routes
