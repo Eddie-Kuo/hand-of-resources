@@ -45,7 +45,7 @@ describe('dog routes', () => {
   });
 
   test('update', async () => {
-    const res = await request(app).put('dogs/1').send({
+    const res = await request(app).put('/dogs/1').send({
       name: 'ollie',
       breed: 'corgi',
       age: 2,
