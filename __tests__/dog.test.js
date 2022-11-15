@@ -43,6 +43,17 @@ describe('dog routes', () => {
       age: expect.any(Number),
     });
   });
+
+  test('update', async () => {
+    const res = await request(app).put('dogs/1').send({
+      name: 'ollie',
+      breed: 'corgi',
+      age: 2,
+    });
+    expect(res.body.name).toEqual('ollie');
+    expect(res.body.breed).toEqual('corgi');
+    expect(res.body.age).toEqual(2);
+  });
   afterAll(() => {
     pool.end();
   });
