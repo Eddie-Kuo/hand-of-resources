@@ -54,7 +54,14 @@ describe('dog routes', () => {
     expect(res.body.breed).toEqual('corgi');
     expect(res.body.age).toEqual(2);
   });
+
+  test('delete', async () => {
+    const res = await request(app).delete('/dogs/1');
+    expect(res.status).toEqual(204);
+  });
   afterAll(() => {
     pool.end();
   });
 });
+
+//* next is the delete test for resource 2
