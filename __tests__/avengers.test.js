@@ -23,6 +23,17 @@ describe('avengers routes', () => {
     expect(count).toEqual(6);
   });
 
+  test('get all route', async () => {
+    const res = await request(app).get('/avengers');
+    expect(res.length).toEqual(5);
+    expect(res.body[0]).toEqual({
+      id: expect.any(String),
+      name: expect.any(String),
+      rating: expect.any(Number),
+      weakness: expect.any(String),
+    });
+  });
+
   afterAll(() => {
     pool.end();
   });
