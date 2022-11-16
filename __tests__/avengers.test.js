@@ -44,6 +44,17 @@ describe('avengers routes', () => {
     });
   });
 
+  test('update', async () => {
+    const res = await request(app).get('/avengers/1').send({
+      name: 'thor',
+      rating: 8,
+      weakness: 'insulators',
+    });
+    expect(res.body.name).toEqual('thor');
+    expect(res.body.rating).toEqual(8);
+    expect(res.body.weakness).toEqual('insulators');
+  });
+
   afterAll(() => {
     pool.end();
   });
