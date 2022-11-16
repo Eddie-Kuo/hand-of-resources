@@ -21,6 +21,18 @@ describe('routes for shows', () => {
     const count = await Show.count();
     expect(count).toEqual(7);
   });
+
+  test('get all route', async () => {
+    const res = await request(app).get('/shows');
+    expect(res.body[0]).toEqual({
+      id: expect.any(String),
+      title: expect.any(String),
+      episodes: expect.any(Number),
+      rating: expect.any(Number),
+    });
+    const count = await Show.count();
+    expect(count).toEqual(6);
+  });
   afterAll(() => {
     pool.end();
   });
