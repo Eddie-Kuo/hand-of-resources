@@ -7,6 +7,18 @@ describe('countries routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
+
+  test('/GET', async () => {
+    const res = await request(app).get('/api/v1/countries');
+    expect(res.length).toEqual(6);
+    expect(res.body[0]).toEqual({
+      id: expect.any(String),
+      name: expect.any(String),
+      populationMillions: expect.any(Number),
+      location: expect.any(String),
+    });
+  });
+
   test('/POST', async () => {
     const country = {
       name: 'england',
