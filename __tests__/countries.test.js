@@ -8,6 +8,11 @@ describe('countries routes', () => {
     return setup(pool);
   });
 
+  test('/DELETE', async () => {
+    const res = await request(app).delete('/api/v1/countries/1');
+    expect(res.status).toEqual(204);
+  });
+
   test('/PUT', async () => {
     const res = await request(app).put('/api/v1/countries/1').send({
       name: 'singapore',
