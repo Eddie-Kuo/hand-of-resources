@@ -8,6 +8,13 @@ describe('countries routes', () => {
     return setup(pool);
   });
 
+  test('/PUT', async () => {
+    const res = await request(app).put('/api/v1/countries/1').send({
+      name: 'singapore',
+    });
+    expect(res.body.name).toEqual('singapore');
+  });
+
   test('/GET by id', async () => {
     const res = await request(app).get('/api/v1/countries/1');
     expect(res.body).toEqual({
