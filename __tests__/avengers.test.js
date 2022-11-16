@@ -45,7 +45,7 @@ describe('avengers routes', () => {
   });
 
   test('update', async () => {
-    const res = await request(app).get('/avengers/1').send({
+    const res = await request(app).put('/avengers/1').send({
       name: 'thor',
       rating: 8,
       weakness: 'insulators',
