@@ -55,10 +55,12 @@ describe('avengers routes', () => {
     expect(res.body.weakness).toEqual('insulators');
   });
 
+  test('delete', async () => {
+    const res = await request(app).delete('/avengers/1');
+    expect(res.status).toEqual(204);
+  });
+
   afterAll(() => {
     pool.end();
   });
 });
-
-//! Next Steps
-//* write out the get all/ get by id test routes
