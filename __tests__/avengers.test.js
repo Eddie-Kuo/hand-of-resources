@@ -25,7 +25,7 @@ describe('avengers routes', () => {
 
   test('get all route', async () => {
     const res = await request(app).get('/avengers');
-    expect(res.length).toEqual(5);
+    expect(res.body.length).toEqual(5);
     expect(res.body[0]).toEqual({
       id: expect.any(String),
       name: expect.any(String),
