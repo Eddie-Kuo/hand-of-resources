@@ -33,6 +33,15 @@ describe('routes for shows', () => {
     const count = await Show.count();
     expect(count).toEqual(6);
   });
+  test('get by id', async () => {
+    const res = await request(app).get('/shows/1');
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      title: expect.any(String),
+      episodes: expect.any(Number),
+      rating: expect.any(Number),
+    });
+  });
   afterAll(() => {
     pool.end();
   });
