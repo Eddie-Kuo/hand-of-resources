@@ -10,7 +10,7 @@ describe('routes for shows', () => {
   });
 
   test('delete', async () => {
-    const res = await request(app).delete('shows/1');
+    const res = await request(app).delete('/shows/1');
     expect(res.status).toEqual(204);
   });
 
