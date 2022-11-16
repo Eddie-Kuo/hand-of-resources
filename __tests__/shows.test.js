@@ -9,6 +9,11 @@ describe('routes for shows', () => {
     return setup(pool);
   });
 
+  test('delete', async () => {
+    const res = await request(app).delete('shows/1');
+    expect(res.status).toEqual(204);
+  });
+
   test('update', async () => {
     const res = await request(app).put('/shows/1').send({
       title: 'friends',
