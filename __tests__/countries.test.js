@@ -10,12 +10,12 @@ describe('countries routes', () => {
   test('/POST', async () => {
     const country = {
       name: 'england',
-      population_millions: 56,
+      populationMillions: 56,
       location: 'Europe',
     };
-    const res = await request(app).post('/api/vi/countries').send(country);
+    const res = await request(app).post('/api/v1/countries').send(country);
     expect(res.body.name).toEqual(country.name);
-    expect(res.body.population_millions).toEqual(country.population_millions);
+    expect(res.body.populationMillions).toEqual(country.populationMillions);
     expect(res.body.location).toEqual(country.location);
   });
   afterAll(() => {
