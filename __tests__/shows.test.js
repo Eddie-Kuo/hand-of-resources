@@ -2,7 +2,7 @@ const app = require('../lib/app');
 const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
-// const { Show } = require('../lib/models/Show');
+const { Show } = require('../lib/models/Show');
 
 describe('routes for shows', () => {
   beforeEach(() => {
