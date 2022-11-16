@@ -8,6 +8,18 @@ describe('routes for shows', () => {
   beforeEach(() => {
     return setup(pool);
   });
+
+  test('update', async () => {
+    const res = await request(app).put('/shows/1').send({
+      title: 'friends',
+      episodes: 236,
+      rating: 9,
+    });
+    expect(res.body.title).toEqual('friends');
+    expect(res.body.episodes).toEqual(236);
+    expect(res.body.rating).toEqual(9);
+  });
+
   test('post route', async () => {
     const show = new Show({
       title: 'you',
