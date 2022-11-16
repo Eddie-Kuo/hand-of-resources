@@ -10,7 +10,7 @@ describe('countries routes', () => {
 
   test('/GET', async () => {
     const res = await request(app).get('/api/v1/countries');
-    expect(res.length).toEqual(6);
+    expect(res.body.length).toEqual(6);
     expect(res.body[0]).toEqual({
       id: expect.any(String),
       name: expect.any(String),
